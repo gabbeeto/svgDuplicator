@@ -1,7 +1,10 @@
+import './startingValues.js';
+
+
 import {  openWindowForLabelsAndDisplayContentForCustomMode } from "./functionality/display/customMode";
 import { displayContentForDefaultMode } from "./functionality/display/defaultMode";
 
-const modeWindow = document.querySelector('#modePopUp');
+export const modeWindow = document.querySelector('#modePopUp');
 modeWindow.addEventListener('cancel', preventFromGettingOut);
 
 function preventFromGettingOut(event){

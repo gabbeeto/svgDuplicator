@@ -16,18 +16,27 @@
 
   </main>
 
-<!-- window Section -->
+  <!-- window Section -->
   <dialog id='modePopUp'>
     <h2>what mode would you rather use:</h2>
     <button>default mode</button>
     <button>custom mode</button>
   </dialog>
-    <dialog id='labelPopUp'>
-      <h2>how many labels do you want</h2>
-      <input type="number" min="0" id="amountOfLabels">
-      <div id='labelContainer'></div>
-      <button>done</button>
-    </dialog>
+  <dialog id='labelPopUp'>
+    <h2>how many labels do you want</h2>
+    <input type="number" value='2' min="0" id="amountOfLabels">
+    <ul id='labelContainer'>
+      <li>
+        <p>label name:</p>
+        <input data-index='0' type="text">
+      </li>
+      <li>
+        <p>label name:</p>
+        <input data-index='1' type="text">
+      </li>
+    </ul>
+    <button>done</button>
+  </dialog>
 </body>
 
 </html>
