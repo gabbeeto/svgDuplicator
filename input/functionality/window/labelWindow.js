@@ -43,3 +43,10 @@ function iterateToCreateAndAppendLabels(numberOfLabels) {
     li.append(labelNameText, labelNameInput,vectorText,vectorInput);
   }
 }
+
+
+export function storeLabelChangesInSettings(){
+alert('this works');
+
+
+}
