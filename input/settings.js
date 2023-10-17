@@ -1,7 +1,7 @@
 
 
 
-function Label(name,vector = true){
+export function Label(name,vector = true){
 return {name,vector};
 }
 

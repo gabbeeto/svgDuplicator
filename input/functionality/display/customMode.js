@@ -7,5 +7,4 @@ import { closeWindow } from "../window/main";
 export function openWindowForLabelsAndDisplayContentForCustomMode(){
 openLabelWindow()
 closeWindow(modeWindow)
-
 }

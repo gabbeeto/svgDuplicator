@@ -12,7 +12,21 @@
     <h1>svg generator <span>by <a href="https://gabbeeto.github.io/">gabbeeto</a></span></h1>
   </header>
   <main>
-
+    <fieldset id="uploadContainer">
+      <legend>upload section</legend>
+      <div id='uploadContent'></div>
+    </fieldset>
+    <fieldset id="displayContainer">
+      <legend>display section</legend>
+      <div id='displayContent'></div>
+      <p>scale: <span></span></p>
+      <input type="range"  id="">
+      <div id='display'></div>
+    </fieldset>
+    <fieldset id="downloadContainer">
+      <legend>download section</legend>
+      <div id='downloadContent'></div>
+    </fieldset>
 
   </main>
 
@@ -28,9 +42,9 @@
     <ul id='labelContainer'>
       <li data-index='0'>
         <p>label name:</p>
-        <input  value='face' type="text">
+        <input value='face' type="text">
         <p>vector:</p>
-        <input  type="checkbox">
+        <input type="checkbox">
       </li>
       <li data-index='1'>
         <p>label name:</p>

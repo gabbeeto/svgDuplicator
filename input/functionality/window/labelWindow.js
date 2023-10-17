@@ -1,3 +1,5 @@
+import { Label } from "../../settings";
+import { displayContent } from "../display/displayContentInMainElement";
 import { openWindow } from "./main";
 
 const labelWindow = document.getElementById('labelPopUp');
@@ -40,13 +42,35 @@ function iterateToCreateAndAppendLabels(numberOfLabels) {
     vectorInput.type = 'checkbox';
 
     labelContainer.appendChild(li)
-    li.append(labelNameText, labelNameInput,vectorText,vectorInput);
+    li.append(labelNameText, labelNameInput, vectorText, vectorInput);
   }
 }
 
 
-export function storeLabelChangesInSettings(){
-alert('this works');
 
 
+
+
+
+// done button function
+
+export function storeLabelChangesInSettings() {
+  emptyLabel()
+  iterateAndPushNewLabels();
+  displayContent()
+}
+
+function emptyLabel() {
+  labelSetting = [];
+}
+
+function iterateAndPushNewLabels() {
+  let labelLists = labelContainer.querySelectorAll('li');
+
+  for (let labelList of labelLists) {
+    let inputValue = labelList.querySelector('input').value
+    let isLabelVector = labelList.querySelector(`input[type='checkbox']`).checked;
+
+    labelSetting.push(Label(inputValue, isLabelVector))
+  }
 }
