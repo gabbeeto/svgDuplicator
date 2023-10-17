@@ -1,6 +1,7 @@
+import { applyLabelChanges } from "../../eventListeners";
 import { Label } from "../../settings";
 import { displayContent } from "../display/displayContentInMainElement";
-import { openWindow } from "./main";
+import { closeWindow, openWindow } from "./main";
 
 const labelWindow = document.getElementById('labelPopUp');
 
@@ -58,6 +59,7 @@ export function storeLabelChangesInSettings() {
   emptyLabel()
   iterateAndPushNewLabels();
   displayContent()
+  closeWindow(labelWindow)
 }
 
 function emptyLabel() {
