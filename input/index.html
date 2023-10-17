@@ -26,13 +26,17 @@
     <h2>how many labels do you want</h2>
     <input type="number" value='2' min="0" id="amountOfLabels">
     <ul id='labelContainer'>
-      <li>
+      <li data-index='0'>
         <p>label name:</p>
-        <input data-index='0' type="text">
+        <input  value='face' type="text">
+        <p>vector:</p>
+        <input  type="checkbox">
       </li>
-      <li>
+      <li data-index='1'>
         <p>label name:</p>
-        <input data-index='1' type="text">
+        <input value='body' type="text">
+        <p>vector:</p>
+        <input checked type="checkbox">
       </li>
     </ul>
     <button>done</button>

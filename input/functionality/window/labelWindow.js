@@ -24,13 +24,22 @@ function resetTheLabelContainer() {
 function iterateToCreateAndAppendLabels(numberOfLabels) {
   for (let index = 0; index < numberOfLabels; index++) {
     let li = document.createElement('li')
+    li.dataset.Index = index;
 
-    let text = document.createElement('p');
-    text.innerText = 'label name:';
+    let labelNameText = document.createElement('p');
+    labelNameText.innerText = 'label name:';
 
-    let userInput = document.createElement('input');
-    userInput.dataset.index = index;
+
+    let labelNameInput = document.createElement('input');
+
+
+    let vectorText = document.createElement('p');
+    vectorText.innerText = 'vector:'
+
+    let vectorInput = document.createElement('input');
+    vectorInput.type = 'checkbox';
+
     labelContainer.appendChild(li)
-    li.append(text, userInput);
+    li.append(labelNameText, labelNameInput,vectorText,vectorInput);
   }
 }
