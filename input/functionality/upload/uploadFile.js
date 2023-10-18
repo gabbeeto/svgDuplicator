@@ -1,33 +1,56 @@
-let index;
+let labelIndex;
 let fileInput;
 let svgFiles;
 let fileReader;
 
 export function uploadFiles() {
-  index = this.dataset.index
-  fileInput = document.querySelector(`li[data-index='${index}'] input`);
+  labelIndex = this.dataset.index
+  fileInput = document.querySelector(`li[data-index='${labelIndex}'] input`);
   svgFiles = fileInput.files;
-  fileReader = new FileReader();
-  loadSvgData(svgFiles.length);
-
+  loadSvgDataAndImportAppropiateData()
 }
 
-function loadSvgData(length) {
-  console.log(length)
-  // base case
-  if (length < 1) {
-    return 'finished';
+
+async function loadSvgDataAndImportAppropiateData() {
+  // Convert the FileList into an array and iterate
+  let files = Array.from(svgFiles).map(file => {
+
+    let reader = new FileReader();
+    // Create a new promise
+    return new Promise(resolve => {
+      // Resolve the promise after reading file
+      reader.onload = () => resolve(reader.result);
+      // Read the file as a text
+      reader.readAsText(file);
+    });
+  });
+
+  let dataResults = await Promise.all(files);
+  parseSvgData(dataResults)
+}
+
+function parseSvgData(data) {
+  if (labelSetting[labelIndex].vector) {
+    for (let currentData of data) {
+      parseVector(currentData)
+    }
   }
-  // recursive case
   else {
-    fileReader.readAsText(svgFiles[length - 1]);
-
-    fileReader.onload = () => {
-      console.log(fileReader.result);
-
-
-      loadSvgData(length - 1);
+    for (let currentData of data) {
+      parseRaster(currentData)
     }
   }
 }
 
+function parseVector(data) {
+
+  console.log(data);
+  console.log('vector');
+}
+
+function parseRaster(data) {
+  let useRegex = new RegExp(`<use( |\n)id=("|')${[labelSetting[labelIndex].name]}("|')[a-zA-Z0-9=" #,().]+\/>`, 'g');
+  let useElement = data.match(useRegex);
+  console.log(useElement);
+  console.log('raster2');
+}

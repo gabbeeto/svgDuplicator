@@ -1,8 +1,8 @@
 
 
 
-export function Label(name,vector = true){
-return {name,vector};
+export function Label(name,vector = true, content = []){
+return {name,vector, content};
 }
 
 
