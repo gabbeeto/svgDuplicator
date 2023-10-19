@@ -54,8 +54,14 @@ function parseRaster(data) {
   console.log(labelSetting[labelIndex].name);
   let useRegex = new RegExp(`<use( |\n)id=("|')${labelSetting[labelIndex].name}("|')[a-za-z0-9=" #,().]+\/>`, 'g');
   let hrefRegex = /(?<=(href|Href|HREF)="#)[ \n,\.#%^&*\(\)a-zA-Z0-9]+(?=")/gm
+
   let useElement = data.match(useRegex);
-  let hrefAttribute = `${useElement}`.match(hrefRegex)
+  let hrefAttribute = `${useElement}`.match(hrefRegex);
+
+  let imageRegex = new RegExp(`<image( |\n|\t)+(width|Width)="[0-9]+"( |\n|\t)+(height|Height)="[0-9]+"( |\n|\t)+id="${hrefAttribute}"[ a-zA-Z=":\/;0-9,+]+\/>`, 'gm');
+  let imageElement = data.match(imageRegex);
+
   console.log(useElement);
   console.log(hrefAttribute);
+  console.log(imageElement);
 }
