@@ -20,7 +20,7 @@
       <legend>display section</legend>
       <ul id='displayContent'></ul>
       <p>scale: <span></span></p>
-      <input type="range"  id="">
+      <input type="range" id="">
       <div id='display'></div>
     </fieldset>
     <fieldset id="downloadContainer">
@@ -39,6 +39,11 @@
   <dialog id='labelPopUp'>
     <h2>how many labels do you want</h2>
     <input type="number" value='2' min="0" id="amountOfLabels">
+    <h2>main part:</h2>
+    <select id="base">
+      <option value="0">face</option>
+      <option value="1">body</option>
+    </select>
     <ul id='labelContainer'>
       <li data-index='0'>
         <p>label name:</p>
