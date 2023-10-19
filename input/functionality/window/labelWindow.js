@@ -2,6 +2,7 @@ import { applyLabelChanges } from "../../eventListeners";
 import { Label } from "../../settings";
 import { displayContent } from "../display/displayContentInMainElement";
 import { closeWindow, openWindow } from "./main";
+import { updateBaseSelect } from "./updateBaseSelectElement";
 
 const labelWindow = document.getElementById('labelPopUp');
 
@@ -16,8 +17,9 @@ amountOfLabelInput.addEventListener('change', displayTheLabels)
 
 function displayTheLabels() {
   let amountOfLabels = Number(this.value);
-  resetTheLabelContainer()
-  iterateToCreateAndAppendLabels(amountOfLabels)
+  resetTheLabelContainer();
+  iterateToCreateAndAppendLabels(amountOfLabels);
+  updateBaseSelect();
 }
 
 function resetTheLabelContainer() {
@@ -34,6 +36,8 @@ function iterateToCreateAndAppendLabels(numberOfLabels) {
 
 
     let labelNameInput = document.createElement('input');
+    labelNameInput.type = 'text';
+    labelNameInput.addEventListener('change', updateBaseSelect)
 
 
     let vectorText = document.createElement('p');
