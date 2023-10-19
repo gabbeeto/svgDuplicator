@@ -46,7 +46,6 @@ function parseVector(data, index) {
 }
 
 function parseRaster(data, index) {
-
   let newIdOrHref = `index${index}`;
   // find the 'use' element with regex
   let useRegex = new RegExp(`<use( |\n)id=("|')${label[labelIndex].name}("|')[a-za-z0-9=" #,().]+\/>`, 'g');

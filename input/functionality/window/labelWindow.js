@@ -67,16 +67,21 @@ export function storeLabelChangesInSettings() {
 }
 
 function emptyLabel() {
-  labelSetting = [];
+  label = [];
 }
 
 function iterateAndPushNewLabels() {
   let labelLists = labelContainer.querySelectorAll('li');
 
-  for (let labelList of labelLists) {
+  labelLists.forEach((labelList, index) => {
     let inputValue = labelList.querySelector('input').value
     let isLabelVector = labelList.querySelector(`input[type='checkbox']`).checked;
-
-    labelSetting.push(Label(inputValue, isLabelVector))
-  }
+    let mainSvgIndex = Number(document.querySelector('#base').value);
+    if (mainSvgIndex == index) {
+      label.push(Label(inputValue, isLabelVector, true))
+    }
+    else {
+      label.push(Label(inputValue, isLabelVector))
+    }
+  })
 }
