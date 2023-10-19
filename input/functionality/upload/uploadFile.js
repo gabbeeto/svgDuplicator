@@ -30,38 +30,41 @@ async function loadSvgDataAndImportAppropiateData() {
 }
 
 function parseSvgData(data) {
-  if (labelSetting[labelIndex].vector) {
-    for (let currentData of data) {
-      parseVector(currentData)
-    }
+  if (label[labelIndex].vector) {
+    data.forEach((currentData, index) => { parseVector(currentData, index) })
   }
   else {
-    for (let currentData of data) {
-      parseRaster(currentData)
-    }
+    data.forEach((currentData, index) => { parseRaster(currentData, index) })
   }
 }
 
-function parseVector(data) {
+function parseVector(data, index) {
   console.log(data);
-  let groupRegex = new RegExp(`(?<=<g id="${labelSetting[labelIndex].name}">)[a-zA-Z0-9 \n\t<="-/\.,>]+(?=<\/g>)`, 'g');
+  let groupRegex = new RegExp(`(?<=<g id="${label[labelIndex].name}">)[a-zA-Z0-9 \n\t<="-/\.,>]+(?=<\/g>)`, 'g');
   let groupElement = data.match(groupRegex);
   console.log(groupElement);
 }
 
-function parseRaster(data) {
-  console.log(data);
-  console.log(labelSetting[labelIndex].name);
-  let useRegex = new RegExp(`<use( |\n)id=("|')${labelSetting[labelIndex].name}("|')[a-za-z0-9=" #,().]+\/>`, 'g');
-  let hrefRegex = /(?<=(href|Href|HREF)="#)[ \n,\.#%^&*\(\)a-zA-Z0-9]+(?=")/gm
+function parseRaster(data, index) {
 
+  let newIdOrHref = `index${index}`;
+  // find the 'use' element with regex
+  let useRegex = new RegExp(`<use( |\n)id=("|')${label[labelIndex].name}("|')[a-za-z0-9=" #,().]+\/>`, 'g');
   let useElement = data.match(useRegex);
+
+  // extract the 'href' attribute from 'use' element to get the corresponding to get image element id
+  let hrefRegex = /(?<=(href|Href|HREF)="#)[ \n,\.#%^&*\(\)a-zA-Z0-9]+(?=")/gm
   let hrefAttribute = `${useElement}`.match(hrefRegex);
 
+  //get image element
   let imageRegex = new RegExp(`<image( |\n|\t)+(width|Width)="[0-9]+"( |\n|\t)+(height|Height)="[0-9]+"( |\n|\t)+id="${hrefAttribute}"[ a-zA-Z=":\/;0-9,+]+\/>`, 'gm');
   let imageElement = data.match(imageRegex);
 
-  console.log(useElement);
-  console.log(hrefAttribute);
-  console.log(imageElement);
+  // replace id's and href's so we don't mix them up in the future
+  const idRemover = /(?<=id=")[a-zA-Z0-9 +%\$\^&*\.\n\t.]+(?=")/gm
+  let newImageElement = `${imageElement}`.replace(idRemover, newIdOrHref);
+  let newUseElement = `${useElement}`.replace(hrefRegex, newIdOrHref);
+
+  // push to the main label array
+  label[labelIndex].content.push({ image: newImageElement, use: newUseElement })
 }

@@ -6,7 +6,7 @@ let displayContainer = document.getElementById('displayContent');
 let downloadContainer = document.getElementById('downloadContent');
 
 export function displayContent() {
-  uploadContainer.innerHTML = labelSetting.map(({ name, vector }, index) => {
+  uploadContainer.innerHTML = label.map(({ name, vector }, index) => {
     return `
   <li data-index='${index}'>
   <p>upload ${name}</p>
@@ -19,7 +19,7 @@ export function displayContent() {
   button.addEventListener('click', uploadFiles);
   }
 
-  displayContainer.innerHTML = labelSetting.map(({ name, vector }, index) => {
+  displayContainer.innerHTML = label.map(({ name, vector }, index) => {
     return `
   <li data-index='${index}'>
     <p>available ${name}</p>
@@ -28,7 +28,7 @@ export function displayContent() {
 
 
 
-  downloadContainer.innerHTML = labelSetting.map(({ name, vector }, index) => {
+  downloadContainer.innerHTML = label.map(({ name, vector }, index) => {
     return `
   <li data-index='${index}'>
     <p>download ${name}</p>

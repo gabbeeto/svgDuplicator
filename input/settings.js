@@ -6,4 +6,4 @@ return {name,vector, content};
 }
 
 
-window.labelSetting = [Label('face', false), Label('body')];
+window.label = [Label('face', false), Label('body')];
