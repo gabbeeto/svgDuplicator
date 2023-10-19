@@ -43,14 +43,19 @@ function parseSvgData(data) {
 }
 
 function parseVector(data) {
-
   console.log(data);
-  console.log('vector');
+  let groupRegex = new RegExp(`(?<=<g id="${labelSetting[labelIndex].name}">)[a-zA-Z0-9 \n\t<="-/\.,>]+(?=<\/g>)`, 'g');
+  let groupElement = data.match(groupRegex);
+  console.log(groupElement);
 }
 
 function parseRaster(data) {
-  let useRegex = new RegExp(`<use( |\n)id=("|')${[labelSetting[labelIndex].name]}("|')[a-zA-Z0-9=" #,().]+\/>`, 'g');
+  console.log(data);
+  console.log(labelSetting[labelIndex].name);
+  let useRegex = new RegExp(`<use( |\n)id=("|')${labelSetting[labelIndex].name}("|')[a-za-z0-9=" #,().]+\/>`, 'g');
+  let hrefRegex = /(?<=(href|Href|HREF)="#)[ \n,\.#%^&*\(\)a-zA-Z0-9]+(?=")/gm
   let useElement = data.match(useRegex);
+  let hrefAttribute = `${useElement}`.match(hrefRegex)
   console.log(useElement);
-  console.log('raster2');
+  console.log(hrefAttribute);
 }
