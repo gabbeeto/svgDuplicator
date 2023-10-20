@@ -5,14 +5,28 @@
   <title>svg generator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="main-fe7680d18449612a9b7b.js"></script></head>
+<script defer src="main-995b035fcdd6b8ff46ef.js"></script></head>
 
 <body>
   <header>
     <h1>svg generator <span>by <a href="https://gabbeeto.github.io/">gabbeeto</a></span></h1>
   </header>
   <main>
-
+    <fieldset id="uploadContainer">
+      <legend>upload section</legend>
+      <ul id='uploadContent'></ul>
+    </fieldset>
+    <fieldset id="displayContainer">
+      <legend>display section</legend>
+      <ul id='displayContent'></ul>
+      <p>scale: <span></span></p>
+      <input type="range" id="">
+      <div id='display'></div>
+    </fieldset>
+    <fieldset id="downloadContainer">
+      <legend>download section</legend>
+      <ul id='downloadContent'></ul>
+    </fieldset>
 
   </main>
 
@@ -25,17 +39,26 @@
   <dialog id='labelPopUp'>
     <h2>how many labels do you want</h2>
     <input type="number" value='2' min="0" id="amountOfLabels">
+    <h2>main svg body:</h2>
+    <select id="base">
+      <option value="0">face</option>
+      <option value="1">body</option>
+    </select>
     <ul id='labelContainer'>
-      <li>
+      <li data-index='0'>
         <p>label name:</p>
-        <input data-index='0' type="text">
+        <input value='face' type="text">
+        <p>vector:</p>
+        <input type="checkbox">
       </li>
-      <li>
+      <li data-index='1'>
         <p>label name:</p>
-        <input data-index='1' type="text">
+        <input value='body' type="text">
+        <p>vector:</p>
+        <input checked type="checkbox">
       </li>
     </ul>
-    <button>done</button>
+    <button id="applyLabelChangesButton">done</button>
   </dialog>
 </body>
 
