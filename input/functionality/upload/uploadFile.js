@@ -1,16 +1,17 @@
 import { displaySvgData } from "../display/displaySvgContent";
 
-let labelIndex;
+window.labelIndex;
 let fileInput;
 let svgFiles;
 
-export function uploadFiles() {
-  labelIndex = this.dataset.index
+export async function uploadFiles() {
+  window.labelIndex = this.dataset.index
   fileInput = document.querySelector(`li[data-index='${labelIndex}'] input`);
   svgFiles = fileInput.files;
   loadSvgDataAndImportAppropiateData()
   getName()
-  displaySvgData();
+
+  await displaySvgData();
 }
 
 
