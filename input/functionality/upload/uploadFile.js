@@ -9,6 +9,8 @@ export function uploadFiles() {
   fileInput = document.querySelector(`li[data-index='${labelIndex}'] input`);
   svgFiles = fileInput.files;
   loadSvgDataAndImportAppropiateData()
+  getName()
+  displaySvgData();
 }
 
 
@@ -41,7 +43,6 @@ function parseSvgData(data) {
   else {
     data.forEach((currentData, index) => { parseRaster(currentData, index) })
   }
-  displaySvgData();
 }
 function getBaseForLaterUse(data) {
   let svgRegex = /<svg[A-Za-z0-9 ="\.:\/]+>/;
@@ -90,6 +91,7 @@ function parseVector(data, index) {
 
   // push to the main label array
   label[labelIndex].content.push({ groupElement: groupElementWithGroupContent })
+
 }
 
 
@@ -126,3 +128,8 @@ function parseRaster(data, index) {
   label[labelIndex].content.push({ image: newImageElement, use: newUseElement })
 }
 
+function getName() {
+  for (let file of fileInput.files) {
+    window.fileNames[Number(labelIndex)].push(file.name)
+  }
+}
