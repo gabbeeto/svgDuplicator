@@ -1,5 +1,6 @@
 import { downloadFile } from "../download/downloadFile";
 import { uploadFiles } from "../upload/uploadFile";
+import { updateOnDisplayer } from "./svgDisplayer";
 
 let uploadContainer = document.getElementById('uploadContent');
 let displayContainer = document.getElementById('displayContent');
@@ -15,8 +16,8 @@ export function displayContent() {
   </li>`}).join('')
 
   let allTheButtonsInUploadContainer = uploadContainer.querySelectorAll('button');
-  for(let button of allTheButtonsInUploadContainer){
-  button.addEventListener('click', uploadFiles);
+  for (let button of allTheButtonsInUploadContainer) {
+    button.addEventListener('click', uploadFiles);
   }
 
   displayContainer.innerHTML = label.map(({ name, vector }, index) => {
@@ -26,6 +27,10 @@ export function displayContent() {
     <select data-index='${index}'></select>
   </li>`}).join('')
 
+  let allTheSelectElementsInDisplayContainer = displayContainer.querySelectorAll('select');
+  for (let selectElement of allTheSelectElementsInDisplayContainer) {
+    selectElement.addEventListener('change', updateOnDisplayer);
+  }
 
 
   downloadContainer.innerHTML = label.map(({ name, vector }, index) => {
@@ -37,8 +42,8 @@ export function displayContent() {
 
   let allTheButtonsInDownloadContainer = downloadContainer.querySelectorAll('button');
 
-  for(let button of allTheButtonsInDownloadContainer){
-  button.addEventListener('click', downloadFile);
+  for (let button of allTheButtonsInDownloadContainer) {
+    button.addEventListener('click', downloadFile);
   }
 
 }
