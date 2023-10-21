@@ -5,14 +5,30 @@ export function updateOnDisplayer() {
   let currentLabel = window.label[indexForLabel];
   let svgContent = currentLabel.content[indexForSvgContent];
 
-  if (svgContent && currentLabel.vector) {
-    let {groupElement} = svgContent;
-    console.log(groupElement)
+  if (svgContent) {
+    window.displayer[indexForLabel] = svgContent;
+    displayOnDisplayer()
   }
-  else if (svgContent && currentLabel.vector == false) {
-    let {use:useElement} = svgContent;
-    let imageElement = `${svgContent.image}`;
-    console.log(imageElement)
-    console.log(useElement)
-  }
+
+}
+
+function displayOnDisplayer() {
+  let groupElements = [];
+  let useElements = [];
+  let imageElements = [];
+
+  window.displayer.forEach((displayItem, index) => {
+    // check if it's a vector or not
+    if (displayItem.image) {
+      // push use and image elements to respective arrays
+      useElements.push(displayItem.use);
+      imageElements.push(displayItem.image);
+    }
+    else {
+      // push group elements 
+      groupElements.push(displayItem.groupElement);
+    }
+  })
+  let svgDisplayer = document.getElementById('display');
+  svgDisplayer.innerHTML = `${window.mainSvgElement} <defs>${imageElements.join('\n')} </defs> ${groupElements.join('\n')} ${useElements.join('\n')} </svg> `
 }
