@@ -1,7 +1,8 @@
+import { displaySvgData } from "../display/displaySvgContent";
+
 let labelIndex;
 let fileInput;
 let svgFiles;
-let fileReader;
 
 export function uploadFiles() {
   labelIndex = this.dataset.index
@@ -40,6 +41,7 @@ function parseSvgData(data) {
   else {
     data.forEach((currentData, index) => { parseRaster(currentData, index) })
   }
+  displaySvgData();
 }
 function getBaseForLaterUse(data) {
   let svgRegex = /<svg[A-Za-z0-9 ="\.:\/]+>/;
