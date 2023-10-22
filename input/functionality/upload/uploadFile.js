@@ -8,6 +8,7 @@ export async function uploadFiles() {
   window.labelIndex = this.dataset.index
   fileInput = document.querySelector(`li[data-index='${labelIndex}'] input`);
   svgFiles = fileInput.files;
+  fileNames[labelIndex] = [];
   loadSvgDataAndImportAppropiateData()
   getName()
 
@@ -133,6 +134,7 @@ function parseRaster(data, index) {
 
 function getName() {
   for (let file of fileInput.files) {
-    window.fileNames[Number(labelIndex)].push(file.name)
+    let nameWithoutSvgExtension =  file.name.match(/[a-zA-Z0-9 \n\t,\(\)\[\]]+(?=\.svg)/gm);
+    window.fileNames[Number(labelIndex)].push(`${nameWithoutSvgExtension}`)
   }
 }

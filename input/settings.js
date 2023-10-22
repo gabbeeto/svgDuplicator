@@ -6,9 +6,9 @@ export function Label(name, vector = true, baseSvg = false, content = []) {
 }
 
 
-window.label = [Label('face', false), Label('body',true, true)];
+window.label = [Label('face', false), Label('body', true, true)];
 window.mainSvgElement = '<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1300" width="1300" height="1300">';
-window.fileNames = [[],[]];
+window.fileNames = [['confused', 'confused 2', 'crazy', 'dissapointed', 'happy', 'happy 2', 'scared', 'scared2'], ['gabbeeto', 'yuchie']];
 window.displayer = [];
 
 

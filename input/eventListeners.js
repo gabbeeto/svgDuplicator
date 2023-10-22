@@ -49,6 +49,6 @@ bodySelect.addEventListener('change', updateOnDisplayer);
 
 let downloadFaceButton = document.querySelector('#downloadContent button');
 let downloadBodyButton = document.querySelector('#downloadContent button[data-index="1"]');
-downloadFaceButton.addEventListener('change', downloadFile);
-downloadBodyButton.addEventListener('change', downloadFile);
+downloadFaceButton.addEventListener('click', downloadFile);
+downloadBodyButton.addEventListener('click', downloadFile);
 

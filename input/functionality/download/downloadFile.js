@@ -10,7 +10,9 @@ let imageElements = [];
 
 
 export function downloadFile() {
+  alert('this works motherfuckers');
   // reset all the arrays
+  
   groupElements = [];
   useElements = [];
   imageElements = [];
@@ -76,7 +78,7 @@ function getInformationFromCurrentIndex(labelIndex) {
     // this adds the content of the svg to download later on
     let contentOfFile = `${window.mainSvgElement} <defs>${imageElements.join('\n')} </defs> ${groupElements.join('\n')} ${useElements.join('\n')} </svg> `
     let NameOfFile = fileNames[labelIndex][index];
-    zip.file(`${NameOfFile}`, contentOfFile);
+    zip.file(`${NameOfFile}.svg`, contentOfFile);
 
     removeFirstItem(svgContent);
     // because we want to add the other label when we iterate without mixing the content that we added in this label
