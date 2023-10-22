@@ -29,11 +29,13 @@ async function loadSvgDataAndImportAppropiateData() {
     });
   });
 
-  let dataResults = await Promise.all(files);
-  parseSvgData(dataResults)
+  let dataResults = await Promise.all(files).then((data) => {parseSvgData(data)});
 }
 
 function parseSvgData(data) {
+  // reset content
+  label[labelIndex].content = [];
+
   let svgValueOfSelect = document.querySelector('#base').value;
   if (svgValueOfSelect == labelIndex) {
     getBaseForLaterUse(data);
