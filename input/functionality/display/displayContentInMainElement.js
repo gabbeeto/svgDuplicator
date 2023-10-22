@@ -37,7 +37,7 @@ export function displayContent() {
     return `
   <li data-index='${index}'>
     <p>download ${name}</p>
-    <button>download ${name}</button>
+    <button data-index='${index}'>download ${name}</button>
   </li>`}).join('')
 
   let allTheButtonsInDownloadContainer = downloadContainer.querySelectorAll('button');
