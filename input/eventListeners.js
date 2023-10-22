@@ -2,10 +2,8 @@ import './startingValues.js';
 import './settings.js';
 
 
-
-
 import { openWindowForLabelsAndDisplayContentForCustomMode } from "./functionality/display/customMode";
-import { displayContentForDefaultMode } from "./functionality/display/defaultMode";
+import { displayContentForDefaultMode, displayContentForDefaultRasterMode } from "./functionality/display/defaultMode";
 import { storeLabelChangesInSettings } from './functionality/window/labelWindow.js';
 
 export const modeWindow = document.querySelector('#modePopUp');
@@ -17,7 +15,11 @@ function preventFromGettingOut(event) {
 
 modeWindow.showModal();
 
-const defaultModeButton = modeWindow.querySelector('button');
+const defaultRasterModeButton = modeWindow.querySelector('button');
+defaultRasterModeButton.addEventListener('click', displayContentForDefaultRasterMode);
+
+
+const defaultModeButton = modeWindow.querySelector('button:nth-of-type(2)');
 defaultModeButton.addEventListener('click', displayContentForDefaultMode);
 
 const customModeButton = modeWindow.querySelector('button:last-of-type');
