@@ -6,6 +6,9 @@ import './functionality/appendSvgBody.js'
 import { openWindowForLabelsAndDisplayContentForCustomMode } from "./functionality/display/customMode";
 import { displayContentForDefaultMode, displayContentForDefaultRasterMode } from "./functionality/display/defaultMode";
 import { storeLabelChangesInSettings } from './functionality/window/labelWindow.js';
+import { updateOnDisplayer } from './functionality/display/svgDisplayer.js';
+import { uploadFiles } from './functionality/upload/uploadFile.js';
+import { downloadFile } from './functionality/download/downloadFile.js';
 
 export const modeWindow = document.querySelector('#modePopUp');
 modeWindow.addEventListener('cancel', preventFromGettingOut);
@@ -28,3 +31,24 @@ customModeButton.addEventListener('click', openWindowForLabelsAndDisplayContentF
 
 const applyLabelChanges = document.getElementById('applyLabelChangesButton');
 applyLabelChanges.addEventListener('click', storeLabelChangesInSettings)
+
+
+
+// html content event listener section
+let uploadFaceButton = document.querySelector('#uploadContent button');
+let uploadBodyButton = document.querySelector(`#uploadContent  button[data-index="1"]`);
+uploadFaceButton.addEventListener('click', uploadFiles)
+uploadBodyButton.addEventListener('click', uploadFiles)
+
+
+let faceSelect = document.querySelector('#displayContent select');
+let bodySelect = document.querySelector('#displayContent select[data-index="1"]');
+faceSelect.addEventListener('change', updateOnDisplayer);
+bodySelect.addEventListener('change', updateOnDisplayer);
+
+
+let downloadFaceButton = document.querySelector('#downloadContent button');
+let downloadBodyButton = document.querySelector('#downloadContent button[data-index="1"]');
+downloadFaceButton.addEventListener('change', downloadFile);
+downloadBodyButton.addEventListener('change', downloadFile);
+
