@@ -1,5 +1,6 @@
 import './startingValues.js';
 import './settings.js';
+import './functionality/appendSvgBody.js'
 
 
 import { openWindowForLabelsAndDisplayContentForCustomMode } from "./functionality/display/customMode";

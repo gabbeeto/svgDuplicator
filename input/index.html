@@ -14,18 +14,64 @@
   <main>
     <fieldset id="uploadContainer">
       <legend>upload section</legend>
-      <ul id='uploadContent'></ul>
+      <ul id='uploadContent'>
+        <li data-index="0">
+          <p>upload face</p>
+          <input type="file" data-vector="false" multiple>
+          <button data-index="0" data-vector="false">add face</button>
+        </li>
+        <li data-index="1">
+          <p>upload body</p>
+          <input type="file" data-vector="true" multiple>
+          <button data-index="1" data-vector="true">add body</button>
+        </li>
+
+      </ul>
     </fieldset>
+
     <fieldset id="displayContainer">
       <legend>display section</legend>
-      <ul id='displayContent'></ul>
+      <ul id='displayContent'>
+        <li>
+          <p>available face</p>
+          <select data-index="0">
+            <option value="0" selected>confused</option>
+            <option value="1">confused 2</option>
+            <option value="3">crazy</option>
+            <option value="4">dissapointed</option>
+            <option value="5">happy</option>
+            <option value="6">happy 2</option>
+            <option value="7">scared</option>
+            <option value="8">scared 2</option>
+          </select>
+        </li>
+
+        <li>
+          <p>available body</p>
+          <select data-index="0">
+            <option value="0" selected>gabbeeto</option>
+            <option value="1">yuchie</option>
+          </select>
+
+        </li>
+      </ul>
       <p>scale: <span></span></p>
       <input type="range" id="">
       <div id='display'></div>
     </fieldset>
+
     <fieldset id="downloadContainer">
       <legend>download section</legend>
-      <ul id='downloadContent'></ul>
+      <ul id='downloadContent'>
+        <li data-index="0">
+          <p>download face</p>
+          <button data-index="0">download face</button>
+        </li>
+        <li data-index="1">
+          <p>download body</p>
+          <button data-index="1">download body</button>
+        </li>
+      </ul>
     </fieldset>
 
   </main>
