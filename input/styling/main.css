@@ -10,8 +10,27 @@ box-sizing: border-box;
 --white: white;
 }
 
+body{
+display:flex;
+flex-direction:column;
+
+}
+main{
+display:grid;
+gap: 2vw;
+height: 110vh;
+grid-template: 1fr 1fr 1fr / 1fr;
+}
+
 header{
 border-bottom: 2px solid var(--black);
+}
 
+#displayContainer{
+height:100%;
+}
+#display > *{
+height:25%;
+width:25%;
 
 }
