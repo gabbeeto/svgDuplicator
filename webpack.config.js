@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './input/eventListeners.js',
+  entry: ['./input/eventListeners.js', './input/importStyles.js'],
   devtool: 'inline-source-map',
   devServer: {
     static: './output',

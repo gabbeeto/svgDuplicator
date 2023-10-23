@@ -1,0 +1,17 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* mobile first design: 330x440px */
+:root{
+--black: black;
+--white: white;
+}
+
+header{
+border-bottom: 2px solid var(--black);
+
+
+}
