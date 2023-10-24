@@ -6,11 +6,13 @@ box-sizing: border-box;
 
 /* mobile first design: 330x440px */
 :root{
---black: black;
---white: white;
+--black: #4F4E4F;
+--white: #898D74;
 }
 
 body{
+background-color: var(--black);
+color: var(--white);
 display:flex;
 flex-direction:column;
 }
@@ -32,9 +34,10 @@ padding:1vw;
 width: 90%;
 align-self:center;
 justify-self:center;
+border:2px solid var(--white);
 }
 header{
-border-bottom: 2px solid var(--black);
+border-bottom: 2px solid var(--white);
 }
 
 #displayContainer{
