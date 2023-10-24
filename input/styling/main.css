@@ -63,3 +63,10 @@ li{
 list-style: none;
 }
 
+select{
+background-color:var(--black);
+color:var(--white);
+border:2px solid var(--otherWhite);
+padding: min(1vw,10px) ;
+border-radius:10px;
+}
