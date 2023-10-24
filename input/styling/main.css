@@ -23,6 +23,12 @@ grid-template: 1fr 1fr 1fr / 1fr;
 }
 
 fieldset{
+display: flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction: column;
+padding:1vw;
 width: 90%;
 align-self:center;
 justify-self:center;
@@ -34,10 +40,12 @@ border-bottom: 2px solid var(--black);
 #displayContainer{
 height:100%;
 }
+
 #display > *{
-height:25%;
-width:25%;
+height:80%;
+width:80%;
 }
+
 li{
 list-style: none;
 }
