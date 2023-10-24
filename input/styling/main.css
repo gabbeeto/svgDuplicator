@@ -7,7 +7,9 @@ box-sizing: border-box;
 /* mobile first design: 330x440px */
 :root{
 --black: #4F4E4F;
+--otherWhite:#d1caa9;
 --white: #898D74;
+--blue:#bacdd1;
 }
 
 header{
@@ -22,6 +24,10 @@ background-color: var(--black);
 color: var(--white);
 display:flex;
 flex-direction:column;
+}
+
+header{
+border-bottom: 2px solid var(--white);
 }
 
 main{
@@ -42,9 +48,6 @@ width: 90%;
 align-self:center;
 justify-self:center;
 border:2px solid var(--white);
-}
-header{
-border-bottom: 2px solid var(--white);
 }
 
 #displayContainer{

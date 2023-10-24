@@ -1,0 +1,13 @@
+button{
+padding: clamp(5px,2vw, 20px);
+border-radius: 10px;
+background-color:var(--black);
+color:var(--white);
+border: 2px solid var(--otherWhite);
+}
+
+button:hover{
+color:var(--blue);
+border: 2px solid var(--blue);
+cursor:pointer;
+}
