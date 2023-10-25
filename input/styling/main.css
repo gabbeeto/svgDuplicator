@@ -82,8 +82,8 @@ height:100%;
 }
 
 #display > *{
-height:80%;
-width:80%;
+height:95%;
+width:95%;
 }
 
 li{
@@ -96,4 +96,8 @@ color:var(--white);
 border:2px solid var(--otherWhite);
 padding: min(1vw,10px) ;
 border-radius:10px;
+}
+
+input[type='range']{
+accent-color: var(--blue);
 }
