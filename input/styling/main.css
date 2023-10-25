@@ -28,6 +28,21 @@ flex-direction:column;
 
 header{
 border-bottom: 2px solid var(--white);
+display: flex;
+justify-content:center;
+text-align:center;
+align-items:center;
+}
+
+h1 span{
+display: block;
+font-size:1.2rem;
+}
+h1 span a{
+color:var(--otherWhite)
+}
+h1 span a:visited{
+color:var(--blue)
 }
 
 main{
