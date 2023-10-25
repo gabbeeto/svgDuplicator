@@ -2,3 +2,5 @@
 let labelInput = document.getElementById('amountOfLabels');
 labelInput.value = '2';
 
+let rangeInput = document.querySelector(`input[type='range']`);
+rangeInput.value = 95;
