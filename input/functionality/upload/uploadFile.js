@@ -142,9 +142,8 @@ function getName() {
 }
 
 function pushToLocalStorage(){
-let labelButString = JSON.stringify(window.label);
-localStorage.setItem('label', labelButString);
-
-
+let labelAndFileNames = [window.label , window.fileNames];
+let labelAndFileNamesbutString = JSON.stringify(labelAndFileNames);
+localStorage.setItem('labelAndFileNames', labelAndFileNamesbutString);
 
 }

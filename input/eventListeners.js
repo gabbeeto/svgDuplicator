@@ -8,9 +8,11 @@ import { openWindowForLabelsAndDisplayContentForCustomMode } from "./functionali
 import { displayContentForDefaultMode, displayContentForDefaultRasterMode } from "./functionality/display/defaultMode";
 import { storeLabelChangesInSettings } from './functionality/window/labelWindow.js';
 import { updateOnDisplayer } from './functionality/display/svgDisplayer.js';
-import { uploadFiles } from './functionality/upload/uploadFile.js';
+import { getName, uploadFiles } from './functionality/upload/uploadFile.js';
 import { downloadFile } from './functionality/download/downloadFile.js';
+import { displaySvgData } from './functionality/display/displaySvgContent.js';
 
+let fileInput;
 export const modeWindow = document.querySelector('#modePopUp');
 modeWindow.addEventListener('cancel', preventFromGettingOut);
 
@@ -19,13 +21,24 @@ function preventFromGettingOut(event) {
 }
 
 // if data is stored in the local Storage, update the Label Variable
-if(localStorage.label){
-let localStorageLabel = JSON.parse(localStorage.label);
-window.label = localStorageLabel;
+if (localStorage.labelAndFileNames) {
+
+  let localStorageLabel = JSON.parse(localStorage.labelAndFileNames);
+  console.log(localStorageLabel);
+  window.label = localStorageLabel[0];
+  window.fileNames = localStorageLabel[1];
+
+
+  for (let index = 0;index < label.length;index++) {
+    window.labelIndex = index;
+    console.log(labelIndex);
+    displaySvgData();
+  }
 }
-else{
-modeWindow.showModal();
+else {
+  modeWindow.showModal();
 }
+
 
 
 const defaultRasterModeButton = modeWindow.querySelector('button');
