@@ -11,6 +11,8 @@ import { updateOnDisplayer } from './functionality/display/svgDisplayer.js';
 import { getName, uploadFiles } from './functionality/upload/uploadFile.js';
 import { downloadFile } from './functionality/download/downloadFile.js';
 import { displaySvgData } from './functionality/display/displaySvgContent.js';
+import { downloadDataFromLabelObject } from './functionality/download/downloadData.js';
+import { uploadData } from './functionality/upload/uploadData.js';
 
 let fileInput;
 export const modeWindow = document.querySelector('#modePopUp');
@@ -55,6 +57,11 @@ const applyLabelChanges = document.getElementById('applyLabelChangesButton');
 applyLabelChanges.addEventListener('click', storeLabelChangesInSettings)
 
 
+const downloadDataButton = document.querySelector('#downloadContainer > button');
+downloadDataButton.addEventListener('click',downloadDataFromLabelObject);
+
+const uploadDataInput = document.querySelector(`#downloadContainer > input[type='file']`);
+uploadDataInput.addEventListener('change', uploadData)
 
 // html content event listener section
 let uploadFaceButton = document.querySelector('#uploadContent button');
