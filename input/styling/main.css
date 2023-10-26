@@ -27,6 +27,12 @@ background-color: var(--black);
 background-image: linear-gradient( var(--black) , var(--blue) );
 background-size:cover;
 }
+body > button{
+display: none;
+position: fixed;
+bottom: 2%;
+right:2%;
+}
 
 header{
 background-color:var(--black);
@@ -41,6 +47,7 @@ h1 span{
 display: block;
 font-size:1.2rem;
 }
+
 
 h1 span a{
 color:var(--otherWhite)

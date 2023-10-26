@@ -1,5 +1,5 @@
-import { applyLabelChanges } from "../../eventListeners";
 import { Label } from "../../settings";
+import { displayButton } from "../display/defaultMode";
 import { displayContent } from "../display/displayContentInMainElement";
 import { closeWindow, openWindow } from "./main";
 import { updateBaseSelect } from "./updateBaseSelectElement";
@@ -60,10 +60,11 @@ function iterateToCreateAndAppendLabels(numberOfLabels) {
 // done button function
 
 export function storeLabelChangesInSettings() {
-  emptyLabel()
+  emptyLabel();
   iterateAndPushNewLabels();
-  displayContent()
-  closeWindow(labelWindow)
+  displayContent();
+  closeWindow(labelWindow);
+  displayButton();
 }
 
 function emptyLabel() {

@@ -2,15 +2,20 @@ import { modeWindow } from "../../eventListeners";
 import { closeWindow } from "../window/main";
 
 export function displayContentForDefaultRasterMode(){
-alert('default raster mode is not yet available');
+displayButton()
 closeWindow(modeWindow)
 }
 
 
 export function displayContentForDefaultMode(){
-alert('default  mode is not yet available');
-
+displayButton()
 closeWindow(modeWindow)
 }
 
 
+export function displayButton(){
+let buttonFromTheRightCorner = document.querySelector('body > button');
+  buttonFromTheRightCorner.style.display = 'flex';
+
+
+}
