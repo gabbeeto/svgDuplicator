@@ -18,7 +18,15 @@ function preventFromGettingOut(event) {
   event.preventDefault();
 }
 
+// if data is stored in the local Storage, update the Label Variable
+if(localStorage.label){
+let localStorageLabel = JSON.parse(localStorage.label);
+window.label = localStorageLabel;
+}
+else{
 modeWindow.showModal();
+}
+
 
 const defaultRasterModeButton = modeWindow.querySelector('button');
 defaultRasterModeButton.addEventListener('click', displayContentForDefaultRasterMode);

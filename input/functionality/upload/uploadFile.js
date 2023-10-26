@@ -30,7 +30,9 @@ async function loadSvgDataAndImportAppropiateData() {
     });
   });
 
-  let dataResults = await Promise.all(files).then((data) => {parseSvgData(data)});
+  await Promise.all(files)
+    .then((data) => {parseSvgData(data)})
+    .then(pushToLocalStorage);
 }
 
 function parseSvgData(data) {
@@ -137,4 +139,12 @@ function getName() {
     let nameWithoutSvgExtension =  file.name.match(/[a-zA-Z0-9 \n\t,\(\)\[\]]+(?=\.svg)/gm);
     window.fileNames[Number(labelIndex)].push(`${nameWithoutSvgExtension}`)
   }
+}
+
+function pushToLocalStorage(){
+let labelButString = JSON.stringify(window.label);
+localStorage.setItem('label', labelButString);
+
+
+
 }

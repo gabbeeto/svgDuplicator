@@ -65,6 +65,8 @@ export function storeLabelChangesInSettings() {
   displayContent();
   closeWindow(labelWindow);
   displayButton();
+  const displayer = document.getElementById('display');
+  displayer.innerHTML = '';
 }
 
 function emptyLabel() {
