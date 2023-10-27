@@ -1,12 +1,15 @@
 import { downloadFile } from "../download/downloadFile";
 import { uploadFiles } from "../upload/uploadFile";
 import { updateOnDisplayer } from "./svgDisplayer";
+import { addEventToRangeInput } from "./svgSize";
 
 let uploadContainer = document.getElementById('uploadContent');
 let displayContainer = document.getElementById('displayContent');
 let downloadContainer = document.getElementById('downloadContent');
 
 export function displayContent() {
+
+  addEventToRangeInput();
   // add content to upload container
   uploadContainer.innerHTML = label.map(({ name, vector }, index) => {
     return `

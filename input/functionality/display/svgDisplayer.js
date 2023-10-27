@@ -1,4 +1,6 @@
+
 export function updateOnDisplayer() {
+
   let indexForLabel = this.dataset.index;
   let indexForSvgContent = this.value;
 
@@ -7,7 +9,7 @@ export function updateOnDisplayer() {
 
   if (svgContent) {
     window.displayer[indexForLabel] = svgContent;
-    displayOnDisplayer()
+    displayOnDisplayer();
   }
 
 }

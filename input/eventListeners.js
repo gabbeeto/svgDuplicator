@@ -14,6 +14,7 @@ import { displaySvgData } from './functionality/display/displaySvgContent.js';
 import { downloadDataFromLabelObject } from './functionality/download/downloadData.js';
 import { uploadData } from './functionality/upload/uploadData.js';
 import { displayContent } from './functionality/display/displayContentInMainElement.js';
+import { addEventToRangeInput } from './functionality/display/svgSize.js';
 
 let fileInput;
 export const modeWindow = document.querySelector('#modePopUp');
@@ -23,6 +24,7 @@ function preventFromGettingOut(event) {
   event.preventDefault();
 }
 
+
 // if data is stored in the local Storage, update the Label Variable
 if (localStorage.labelAndFileNames) {
 
@@ -31,8 +33,9 @@ if (localStorage.labelAndFileNames) {
   window.label = localStorageLabel[0];
   window.fileNames = localStorageLabel[1];
 
-
+  addEventToRangeInput();
   displayContent();
+  
   for (let index = 0;index < label.length;index++) {
     window.labelIndex = index;
     console.log(labelIndex);
@@ -71,7 +74,6 @@ let uploadFaceButton = document.querySelector('#uploadContent button');
 let uploadBodyButton = document.querySelector(`#uploadContent  button[data-index="1"]`);
 uploadFaceButton.addEventListener('click', uploadFiles)
 uploadBodyButton.addEventListener('click', uploadFiles)
-
 
 let faceSelect = document.querySelector('#displayContent select');
 let bodySelect = document.querySelector('#displayContent select[data-index="1"]');

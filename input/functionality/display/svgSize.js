@@ -1,13 +1,20 @@
-let rangeInput = document.querySelector(`input[type='range']`);
+export function addEventToRangeInput() {
 
-let span =  document.querySelector(`#svgSize span`);
-rangeInput.addEventListener('change', updateSvgSize)
+  let rangeInput = document.querySelector(`input[type='range']`);
 
-let svg = document.querySelector(`#display > *`);
+  let span = document.querySelector(`#svgSize span`);
 
-function updateSvgSize(){
+  rangeInput.addEventListener('change', updateSvgSize)
 
-span.innerText = `${rangeInput.value}%`;
-svg.style.height = `${rangeInput.value}%`;
-svg.style.width = `${rangeInput.value}%`;
+
+  function updateSvgSize() {
+    let svg = document.querySelector(`#display > *`);
+    span.innerText = `${rangeInput.value}%`;
+    svg.style.height = `${rangeInput.value}%`;
+    svg.style.width = `${rangeInput.value}%`;
+  }
+
 }
+addEventToRangeInput();
+
+
