@@ -5,14 +5,15 @@ import './functionality/display/svgSize.js'
 
 
 import { openWindowForLabelsAndDisplayContentForCustomMode } from "./functionality/display/customMode";
-import { displayContentForDefaultMode, displayContentForDefaultRasterMode } from "./functionality/display/defaultMode";
+import { displayButton, displayContentForDefaultMode, displayContentForDefaultRasterMode } from "./functionality/display/defaultMode";
 import { storeLabelChangesInSettings } from './functionality/window/labelWindow.js';
 import { updateOnDisplayer } from './functionality/display/svgDisplayer.js';
-import { getName, uploadFiles } from './functionality/upload/uploadFile.js';
+import { uploadFiles } from './functionality/upload/uploadFile.js';
 import { downloadFile } from './functionality/download/downloadFile.js';
 import { displaySvgData } from './functionality/display/displaySvgContent.js';
 import { downloadDataFromLabelObject } from './functionality/download/downloadData.js';
 import { uploadData } from './functionality/upload/uploadData.js';
+import { displayContent } from './functionality/display/displayContentInMainElement.js';
 
 let fileInput;
 export const modeWindow = document.querySelector('#modePopUp');
@@ -31,11 +32,13 @@ if (localStorage.labelAndFileNames) {
   window.fileNames = localStorageLabel[1];
 
 
+  displayContent();
   for (let index = 0;index < label.length;index++) {
     window.labelIndex = index;
     console.log(labelIndex);
     displaySvgData();
   }
+  displayButton();
 }
 else {
   modeWindow.showModal();
