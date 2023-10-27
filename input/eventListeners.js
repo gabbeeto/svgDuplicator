@@ -27,24 +27,28 @@ function preventFromGettingOut(event) {
 
 // if data is stored in the local Storage, update the Label Variable
 if (localStorage.labelAndFileNames) {
-
   let localStorageLabel = JSON.parse(localStorage.labelAndFileNames);
-  console.log(localStorageLabel);
   window.label = localStorageLabel[0];
   window.fileNames = localStorageLabel[1];
 
-  addEventToRangeInput();
+  displayLabels();
+}
+else {
+  modeWindow.showModal();
+}
+export function displayLabels() {
+
+
   displayContent();
-  
-  for (let index = 0;index < label.length;index++) {
+
+  for (let index = 0; index < label.length; index++) {
     window.labelIndex = index;
     console.log(labelIndex);
     displaySvgData();
   }
   displayButton();
-}
-else {
-  modeWindow.showModal();
+
+
 }
 
 
@@ -64,7 +68,7 @@ applyLabelChanges.addEventListener('click', storeLabelChangesInSettings)
 
 
 const downloadDataButton = document.querySelector('#downloadContainer > button');
-downloadDataButton.addEventListener('click',downloadDataFromLabelObject);
+downloadDataButton.addEventListener('click', downloadDataFromLabelObject);
 
 const uploadDataInput = document.querySelector(`#downloadContainer > input[type='file']`);
 uploadDataInput.addEventListener('change', uploadData)
