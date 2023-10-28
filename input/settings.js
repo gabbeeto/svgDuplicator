@@ -98,9 +98,9 @@ label[1].content[1] = {
 // customize settings section
 
 export function openSettingsWindow() {
-  let settingWindow = document.getElementById('settingsWindow');
+  let labelContentContainer = document.getElementById('containerForLabelContent');
 
-  let labelContent = label.map(({ name, vector }) => {
+  labelContentContainer.innerHTML = label.map(({ name, vector }) => {
     let checkbox;
     if (vector) { checkbox = `<input checked type="checkbox" >` } else {
       checkbox = `<input  type="checkbox" >`
@@ -114,21 +114,7 @@ export function openSettingsWindow() {
         </article>`
   }).join('');
 
-  settingWindow.innerHTML = `
-<div id='newLabelPart'>
-
-<div>
-                    <p>name of new label</p>
-                    <input id='newLabelName'>
-</div>
-<div>
-                    <p>vector:</p>
-                    <input type="checkbox">
-</div>
-                    <button>add new label</button>
-</div>
-                    <div id='containerForLabelContent'>${labelContent}</div>
-                    <button id='applyChances'>apply new changes</button>`
+  let settingWindow = document.getElementById('settingsWindow');
   openWindow(settingWindow);
 }
 

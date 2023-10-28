@@ -25,7 +25,7 @@
         </li>
         <li data-index="1">
           <p>upload body</p>
-          <input type="file" accept='.svg, .Svg, .SVG'data-vector="true" multiple>
+          <input type="file" accept='.svg, .Svg, .SVG' data-vector="true" multiple>
           <button data-index="1" data-vector="true">add body</button>
         </li>
 
@@ -75,21 +75,21 @@
         </li>
 
       </ul>
-        <button > download all the data</button>
-        <h3>upload data</h3>
-        <input accept='application/json' type="file">
+      <button> download all the data</button>
+      <h3>upload data</h3>
+      <input accept='application/json' type="file">
     </fieldset>
 
   </main>
 
   <!-- window Section -->
-  <dialog  id='modePopUp'>
+  <dialog id='modePopUp'>
     <h2>what mode would you rather use:</h2>
     <button>default raster mode</button>
     <button>default mode</button>
     <button>custom mode</button>
   </dialog>
-  <dialog  id='labelPopUp'>
+  <dialog id='labelPopUp'>
     <h2>how many labels do you want</h2>
     <input type="number" value='2' min="0" id="amountOfLabels">
     <h2>main svg body:</h2>
@@ -113,10 +113,25 @@
     </ul>
     <button id="applyLabelChangesButton">done</button>
   </dialog>
-    <dialog id='settingsWindow'>
+  <dialog id='settingsWindow'>
+      <button id='closeSettingWindow'>close</button>
+    <div id='newLabelPart'>
+      <div>
+        <p>name of new label</p>
+        <input id='newLabelName'>
+      </div>
+      <div>
+        <p>vector:</p>
+        <input type="checkbox">
+      </div>
+      <button>add new label</button>
+    </div>
+    <div id='containerForLabelContent'></div>
+    <button id='applyChances'>apply new changes</button>
 
-    </dialog>
-<button>change settings</button>
+  </dialog>
+  <button>change settings</button>
+
 </body>
 
 </html>
