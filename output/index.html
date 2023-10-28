@@ -5,27 +5,79 @@
   <title>svg generator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="main-995b035fcdd6b8ff46ef.js"></script></head>
+  <meta name="author" content="gabbeeto">
+  <meta name="description" content="this automates having to copy millons of parts of your svg">
+<script defer src="main-182c46cfaa0aaf045846.js"></script></head>
 
 <body>
   <header>
     <h1>svg generator <span>by <a href="https://gabbeeto.github.io/">gabbeeto</a></span></h1>
   </header>
   <main>
+
     <fieldset id="uploadContainer">
       <legend>upload section</legend>
-      <ul id='uploadContent'></ul>
+      <ul id='uploadContent'>
+        <li data-index="0">
+          <p>upload face</p>
+          <input type="file" data-vector="false" multiple>
+          <button data-index="0" data-vector="false">add face</button>
+        </li>
+        <li data-index="1">
+          <p>upload body</p>
+          <input type="file" accept='.svg, .Svg, .SVG' data-vector="true" multiple>
+          <button data-index="1" data-vector="true">add body</button>
+        </li>
+
+      </ul>
     </fieldset>
+
     <fieldset id="displayContainer">
       <legend>display section</legend>
-      <ul id='displayContent'></ul>
-      <p>scale: <span></span></p>
-      <input type="range" id="">
+      <ul id='displayContent'>
+        <li>
+          <p>available face</p>
+          <select data-index="0">
+            <option value="0" selected>confused</option>
+            <option value="1">confused 2</option>
+            <option value="3">crazy</option>
+            <option value="4">dissapointed</option>
+            <option value="5">happy</option>
+            <option value="6">happy 2</option>
+            <option value="7">scared</option>
+            <option value="8">scared 2</option>
+          </select>
+        </li>
+
+        <li>
+          <p>available body</p>
+          <select data-index="1">
+            <option value="0" selected>gabbeeto</option>
+            <option value="1">yuchie</option>
+          </select>
+        </li>
+      </ul>
+      <p id='svgSize'>scale: <span>95%</span></p>
+      <input type="range" step='5' min='50' max='100' value='95'>
       <div id='display'></div>
     </fieldset>
+
     <fieldset id="downloadContainer">
       <legend>download section</legend>
-      <ul id='downloadContent'></ul>
+      <ul id='downloadContent'>
+        <li data-index="0">
+          <p>download face</p>
+          <button data-index="0">download face</button>
+        </li>
+        <li data-index="1">
+          <p>download body</p>
+          <button data-index="1">download body</button>
+        </li>
+
+      </ul>
+      <button> download all the data</button>
+      <h3>upload data</h3>
+      <input accept='application/json' type="file">
     </fieldset>
 
   </main>
@@ -33,6 +85,7 @@
   <!-- window Section -->
   <dialog id='modePopUp'>
     <h2>what mode would you rather use:</h2>
+    <button>default raster mode</button>
     <button>default mode</button>
     <button>custom mode</button>
   </dialog>
@@ -60,6 +113,25 @@
     </ul>
     <button id="applyLabelChangesButton">done</button>
   </dialog>
+  <dialog id='settingsWindow'>
+      <button id='closeSettingWindow'>close</button>
+    <div id='newLabelPart'>
+      <div>
+        <p>name of new label</p>
+        <input id='newLabelName'>
+      </div>
+      <div>
+        <p>vector:</p>
+        <input type="checkbox">
+      </div>
+      <button>add new label</button>
+    </div>
+    <div id='containerForLabelContent'></div>
+    <button id='applyChances'>apply new changes</button>
+
+  </dialog>
+  <button>change settings</button>
+
 </body>
 
 </html>

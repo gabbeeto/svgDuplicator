@@ -66,6 +66,10 @@ border-radius: 5px;
 
 }
 
+#closeSettingWindow{
+margin: 2px;
+}
+
 #newLabelPart{
 padding:5px;
 background-color: var(--white);
