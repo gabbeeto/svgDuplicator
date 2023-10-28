@@ -1,4 +1,5 @@
 import { modeWindow } from "../../eventListeners";
+import { openSettingsWindow } from "../../settings";
 import { closeWindow } from "../window/main";
 
 export function displayContentForDefaultRasterMode(){
@@ -16,6 +17,7 @@ closeWindow(modeWindow)
 export function displayButton(){
 let buttonFromTheRightCorner = document.querySelector('body > button');
   buttonFromTheRightCorner.style.display = 'flex';
+  buttonFromTheRightCorner.addEventListener('click', openSettingsWindow)
 
 
 }
