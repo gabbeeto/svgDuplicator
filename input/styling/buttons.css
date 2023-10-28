@@ -4,6 +4,7 @@ border-radius: 10px;
 background-color:var(--black);
 color:var(--white);
 border: 2px solid var(--otherWhite);
+outline: 0px solid transparent;
 }
 
 button:hover,input[type='file']::file-selector-button:hover{
@@ -11,4 +12,16 @@ color:var(--blue);
 border: 2px solid var(--blue);
 cursor:pointer;
 }
+
+
+#newLabelPart button{
+border: 2px solid var(--otherWhite);
+color: var(--otherWhite);
+}
+
+#newLabelPart button:hover{
+border: 2px solid var(--blue);
+color: var(--blue);
+}
+
 

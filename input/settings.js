@@ -107,14 +107,10 @@ export function openSettingsWindow() {
     }
     return `
         <article>
-          <div>
             <p>name:</p>
             <input value='${name}' type="text">
-          </div>
-          <div>
             <p>vector:</p>
              ${checkbox}
-          </div>
         </article>`
   }).join('');
 
