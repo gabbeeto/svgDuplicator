@@ -98,6 +98,12 @@ label[1].content[1] = {
 // customize settings section
 
 export function openSettingsWindow() {
+  changeContentInSettingsWindow()
+  let settingWindow = document.getElementById('settingsWindow');
+  openWindow(settingWindow);
+}
+
+export function changeContentInSettingsWindow() {
   let labelContentContainer = document.getElementById('containerForLabelContent');
 
   labelContentContainer.innerHTML = label.map(({ name, vector }) => {
@@ -114,7 +120,5 @@ export function openSettingsWindow() {
         </article>`
   }).join('');
 
-  let settingWindow = document.getElementById('settingsWindow');
-  openWindow(settingWindow);
-}
 
+}

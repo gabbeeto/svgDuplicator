@@ -38,6 +38,7 @@ if (localStorage.labelAndFileNames) {
 else {
   modeWindow.showModal();
 }
+
 export function displayLabels() {
 
 
