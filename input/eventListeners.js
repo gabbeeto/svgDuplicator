@@ -15,6 +15,8 @@ import { downloadDataFromLabelObject } from './functionality/download/downloadDa
 import { uploadData } from './functionality/upload/uploadData.js';
 import { displayContent } from './functionality/display/displayContentInMainElement.js';
 import { addEventToRangeInput } from './functionality/display/svgSize.js';
+import { addNewLabel, applyChanges } from './functionality/window/changeSetting.js';
+import { closeWindow } from './functionality/window/main.js';
 
 let fileInput;
 export const modeWindow = document.querySelector('#modePopUp');
@@ -89,4 +91,16 @@ let downloadFaceButton = document.querySelector('#downloadContent button');
 let downloadBodyButton = document.querySelector('#downloadContent button[data-index="1"]');
 downloadFaceButton.addEventListener('click', downloadFile);
 downloadBodyButton.addEventListener('click', downloadFile);
+
+
+
+// setting window
+let closeButton = document.querySelector(`#settingsWindow button`);
+closeButton.addEventListener('click', () => { closeWindow(document.getElementById('settingsWindow')) });
+
+let addNewLabelButton = document.querySelector(`#newLabelPart button`);
+addNewLabelButton.addEventListener('click', addNewLabel);
+
+let applyChangesFromSettingWindow = document.getElementById(`applyChances`);
+applyChangesFromSettingWindow.addEventListener('click', applyChanges);
 
